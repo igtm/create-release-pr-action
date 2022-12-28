@@ -1,5 +1,6 @@
 # create-release-pr-action
 
+Github Action composite for [create-release-pr](https://github.com/igtm/create-release-pr)
 
 # example
 
@@ -19,6 +20,7 @@ jobs:
         with:
           base: 'master'
           head: 'staging'
+          args: '--no-fetch' # optional
       - run: echo "hello"
         shell: bash
 ```
