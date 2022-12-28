@@ -1,0 +1,18 @@
+name: 'create-release-pr'
+description: 'Github Actions for create-release-pr'
+inputs:
+  base:
+    description: 'base branch of pull request'
+    required: true
+  head:
+    description: 'head branch of pull request'
+    required: true
+  args:
+    description: 'other args'
+runs:
+  using: "composite"
+  steps:
+    - run: sudo curl -sfL https://raw.githubusercontent.com/igtm/create-release-pr/master/install.sh | sudo sh -s -- -b=/usr/local/bin
+      shell: bash
+    - run: create-release-pr --base ${{ inputs.base }} --head ${{ inputs.head }} ${{ inputs.args }}
+      shell: bash
