@@ -4,23 +4,28 @@ Github Action composite for [create-release-pr](https://github.com/igtm/create-r
 
 # example
 
-.github/workflows/example.yaml
+.github/workflows/create-release-pr-master.yaml
 
 ```yaml
-on: [push]
+name: Create PullRequest from staging to master
+on:
+  push:
+    branches:
+      - staging
 
 jobs:
-  hello_world_job:
+  create_release_pr_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: create-release-pr
     steps:
       - uses: actions/checkout@v3
-      - id: create release pull request
-        uses: igtm/create-release-pr-action@latest
+        with:
+          fetch-depth: 0
+      - uses: igtm/create-release-pr-action@latest
         with:
           base: 'master'
           head: 'staging'
           args: '--no-fetch' # optional
-      - run: echo "hello"
-        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
