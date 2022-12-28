@@ -4,7 +4,7 @@ Github Action composite for [create-release-pr](https://github.com/igtm/create-r
 
 # example
 
-.github/workspace/example.yaml
+.github/workflows/example.yaml
 
 ```yaml
 on: [push]
