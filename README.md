@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: igtm/create-release-pr-action@latest
+      - uses: igtm/create-release-pr-action@v0.0.3
         with:
           base: 'master'
           head: 'staging'
