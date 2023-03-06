@@ -21,11 +21,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: igtm/create-release-pr-action@v0.0.3
+      - uses: igtm/create-release-pr-action@v0.0.4
         with:
-          base: 'master'
-          head: 'staging'
-          args: '--no-fetch' # optional
+          base: "master"
+          head: "staging"
+          args: "--no-fetch" # optional
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
